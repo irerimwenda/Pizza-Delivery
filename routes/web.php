@@ -1,5 +1,7 @@
 <?php
 
+use App\Events\OrderStatusChanged;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,6 +15,12 @@
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::get('/fire', function () {
+    event(new OrderStatusChanged);
+
+    return 'Fired';
 });
 
 Auth::routes();
