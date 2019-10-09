@@ -20,6 +20,9 @@ window.Vue = require('vue');
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+Vue.component('order-progress', require('./components/OrderProgress.vue').default);
+Vue.component('order-alert', require('./components/OrderAlert.vue').default);
+Vue.component('order-notifications', require('./components/OrderNotifications.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -29,4 +32,10 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 
 const app = new Vue({
     el: '#app',
+    mounted() {
+        Echo.channel('pizza-tracker')
+        .listen('OrderStatusChanged', (e) => {
+            console.log('realtime update')
+        });
+    }
 });

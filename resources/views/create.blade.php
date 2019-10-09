@@ -13,9 +13,7 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
-                    <order-alert user_id="{{ auth()->user()->id }}"></order-alert>
-
+                    
                     <div class="row">
                         <div class="col-lg-12">
                             <form method="post" action="{{ route('user.orders.store') }}" class="form-horizontal">

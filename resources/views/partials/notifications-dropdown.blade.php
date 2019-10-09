@@ -1,5 +1,7 @@
+<order-notifications user_id="{{ auth()->user()->id }}"></order-notifications>
 
-{{-- <li class="dropdown">
+{{-- 
+ <li class="dropdown">
     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
         <i class="fa fa-bell"></i>
         <span class="notification-count label label-danger">8</span>
@@ -46,4 +48,5 @@
 
     </ul>
 </li>
+
  --}}
